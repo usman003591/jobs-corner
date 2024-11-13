@@ -8,12 +8,13 @@
     <title>Jobs Corner</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="px-10">
         <nav
-            class="bg-transparent dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+            class="bg-transparent dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
                 <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="{{ Vite::asset('resources/images/logo_light_1.png') }}" alt="JC Logo"
@@ -63,13 +64,13 @@
         </nav>
 
         <main>
-            <div class="mt-40">
+            <div class="mt-40 justify-items-center">
                 {{ $slot }}
             </div>
         </main>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body>
 
 </html>
