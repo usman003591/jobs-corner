@@ -31,13 +31,11 @@
             </div>
         </section>
         <section>
-            <div>
+            <div class="mb-10">
                 <x-section-heading>Jobs List</x-section-heading>
-                <div class="flex flex-row flex-wrap justify-center">
-                    {{--
-                    <x-job-card />
-                    <x-job-card />
-                    <x-job-card /> --}}
+                <div class="flex flex-col flex-wrap justify-center space-y-1">
+                    <x-all-job-card></x-all-job-card>
+                    <x-all-job-card></x-all-job-card>
                 </div>
             </div>
         </section>
