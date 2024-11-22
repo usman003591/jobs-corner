@@ -1,0 +1,1 @@
+<img class="h-32" src="{{ Vite::asset('resources/images/default_company.png') }}" alt="company">
