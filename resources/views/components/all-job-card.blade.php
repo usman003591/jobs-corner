@@ -4,10 +4,11 @@
     <div class="pl-10">
         <div>
             <a href="">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-600 dark:text-white">
+                <h5 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-600 dark:text-white">
                     Noteworthy technology acquisitions 2021</h5>
             </a>
-            <p class="font-normal text-gray-700 dark:text-gray-400 my-5">Company</p>
+            <p class="font-normal text-gray-700 dark:text-gray-400">Company</p>
+            <p class="mb-2 font-normal text-gray-700 dark:text-gray-400">Salary: $5000 monthly</p>
         </div>
         <div class="flex flex-row flex-wrap justify-start space-x-2">
             <x-tag>tag 1</x-tag>
