@@ -1,5 +1,5 @@
-<div
-    class="flex flex-row text p-6 bg-white border mx-1 mb-2 border-gray-200 rounded-lg hover:shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<x-panel class="flex">
+
     <x-company-logo />
     <div class="pl-10">
         <div>
@@ -16,4 +16,4 @@
             <x-tag>tag 1</x-tag>
         </div>
     </div>
-</div>
+</x-panel>
