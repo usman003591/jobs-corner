@@ -68,7 +68,7 @@
         </nav>
 
         <main>
-            <div class="mt-40 justify-items-center">
+            <div class="mt-10 justify-items-center">
                 {{ $slot }}
             </div>
         </main>
