@@ -14,6 +14,7 @@ return new class extends Migration {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->string('logo');
             $table->string('name');
             $table->string('email');
             $table->string('address');

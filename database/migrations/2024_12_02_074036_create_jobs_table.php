@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(Employer::class);
             $table->string('title');
+            $table->longText('description');
             $table->string('location');
             $table->string('salary');
             $table->string('position')->default('Full-Time');
