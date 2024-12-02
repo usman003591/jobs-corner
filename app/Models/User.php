@@ -47,7 +47,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function employers()
+    //Relationships
+    public function employer()
     {
         return $this->hasOne(Employer::class);
     }
