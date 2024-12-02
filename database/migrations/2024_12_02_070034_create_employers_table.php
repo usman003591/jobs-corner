@@ -13,11 +13,11 @@ return new class extends Migration {
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->string('name');
             $table->string('email');
             $table->string('address');
             $table->string('contact');
-            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }
