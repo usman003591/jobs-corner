@@ -1,3 +1,4 @@
+@props(['job'])
 <x-panel class="block text-center max-w-sm">
     <div>
         <a href="">
@@ -7,8 +8,8 @@
         <p class="font-normal text-gray-700 dark:text-gray-400">Company</p>
     </div>
     <div class="flex flex-row flex-wrap justify-center space-x-2">
-        <x-tag>tag 1</x-tag>
-        <x-tag>tag 1</x-tag>
-        <x-tag>tag 1</x-tag>
+        @foreach ($job->tags as $tag)
+        <x-tag :$tag>Backend</x-tag>
+        @endforeach
     </div>
 </x-panel>
