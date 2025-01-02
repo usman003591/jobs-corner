@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Job;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -15,6 +16,12 @@ class JobSeeder extends Seeder
     public function run(): void
     {
         $tags = Tag::factory(3)->create();
-        Job::factory(5)->hasAttached($tags)->create();
+        Job::factory(5)->hasAttached($tags)->create(new Sequence([
+            'is_featured' => true,
+            'position' => 'Full-time'
+        ], [
+            'is_featured' => false,
+            'position' => 'Part-time'
+        ]));
     }
 }
