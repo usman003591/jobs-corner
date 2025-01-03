@@ -24,7 +24,8 @@ class JobFactory extends Factory
             'salary' => fake()->randomElement(['50,000 PKR', '70,000 PKR', '90,000 PKR', '100,000 PKR', '150,000 PKR', '200,000 PKR']),
             'location' => fake()->city,
             'position' => fake()->randomElement(['Part-Time', 'Full-Time']),
-            'url' => fake()->url
+            'url' => fake()->url,
+            'is_featured' => fake()->boolean
         ];
     }
 }

@@ -27,8 +27,8 @@
             <div>
                 <x-section-heading>Top Jobs</x-section-heading>
                 <div class="flex flex-row flex-wrap justify-center">
-                    @foreach ($jobs as $job)
-                    <x-job-card :$job></x-job-card>
+                    @foreach ($featuredJobs as $job)
+                        <x-job-card :$job></x-job-card>
                     @endforeach
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <x-section-heading>Tags</x-section-heading>
                 <div class="flex flex-wrap px-1 space-x-2">
                     @foreach ($tags as $tag)
-                    <x-tag :$tag />
+                        <x-tag :$tag />
                     @endforeach
 
                 </div>
@@ -48,8 +48,8 @@
             <div class="mb-10">
                 <x-section-heading>Jobs List</x-section-heading>
                 <div class="flex flex-col flex-wrap justify-center space-y-1">
-                    @foreach($jobs as $job)
-                    <x-all-job-card :$job />
+                    @foreach ($jobs as $job)
+                        <x-all-job-card :$job />
                     @endforeach
                 </div>
             </div>
