@@ -75,6 +75,5 @@ class JobController extends Controller
         $jobs = Job::where("title","iLIKE","%".request('q').'%')->get();
 
         return view('results', ['jobs' => $jobs]);
-        // dd('hello');
     }
 }

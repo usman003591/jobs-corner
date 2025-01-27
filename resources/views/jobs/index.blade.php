@@ -1,7 +1,7 @@
 <x-layout>
     <section>
-        <h1 class="font-bold text-4xl mb-7">Shape Your Future, Find the Perfect Job</h1>
-        <div class="flex items-center max-w-lg mx-auto mb-20">
+        <h1 class="font-bold text-4xl mb-10">Shape Your Future, Find the Perfect Job</h1>
+        <div class="flex items-center max-w-lg mx-auto" style="margin-bottom: 5rem;">
             <div class="relative w-full">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </section>
-    <div class="space-y-10 w-[75%] flex flex-col">
+    <div class="space-y-10 max-w-6xl flex flex-col flex-wrap">
         <section>
             <div>
                 <x-section-heading>Top Jobs</x-section-heading>
