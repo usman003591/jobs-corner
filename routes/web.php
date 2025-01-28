@@ -6,9 +6,9 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
-Route::get('/', [JobController::class, 'index']);
 Route::get('/search', [JobController::class, 'search'])->name('search');
-Route::get('/tags/{tag:name}', TagController::class)->name('tag-search');
+Route::get('/tags/{tag:name}', TagController::class);
+Route::get('/', [JobController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
 
@@ -21,8 +21,9 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-
     Route::post('/logout', [SessionController::class, 'destroy']);
+    Route::get('/jobs/create', [JobController::class, 'create']);
+    Route::get('/jobs', [JobController::class, 'store']);
 
 });
 

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Tag;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
-use App\Models\Tag;
 
 class JobController extends Controller
 {
@@ -28,7 +29,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.create');
     }
 
     /**
@@ -36,7 +37,10 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        //
+        $request['is_featured'] = $request->has('is_featured');
+        Auth::user()->employer->jobs()->create([
+            
+        ]);
     }
 
     /**

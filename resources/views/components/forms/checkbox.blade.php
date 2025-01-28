@@ -6,12 +6,13 @@
         'id' => $name,
         'name' => $name,
         'value' => old($name),
+        'class' => 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm dark:bg-gray-700 dark:border-gray-600'
     ];
 @endphp
 
 <x-forms.field :$label :$name>
-    <div class="rounded-xl bg-white/10 border border-white/10 px-5 py-4 w-full">
+    <div class="flex items-center me-4">
         <input {{ $attributes($defaults) }}>
-        <span class="pl-1">{{ $label }}</span>
+        <small><span class="pl-3 text-gray-700">{{ $label }}</span></small>
     </div>
 </x-forms.field>
