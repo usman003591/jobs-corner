@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Job extends Model
 {
 
+    protected $fillable = ['title', 'description', 'location', 'salary', 'position', 'url', 'is_featured'];
+
+
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
     //Relationships
@@ -28,6 +31,6 @@ class Job extends Model
     public function tag(string $name): void
     {
         $tag = Tag::firstOrCreate(['name' => $name]);
-        $this->tags()->attach($tag);
+    $this->tags()->syncWithoutDetaching([$tag->id]);
     }
 }

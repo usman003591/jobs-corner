@@ -1,1 +1,3 @@
-<img class="h-32" src="{{ Vite::asset('resources/images/default_company.png') }}" alt="company">
+@props(['employer'])
+
+<img class="h-32" src="{{ asset($employer->logo) }}" alt="company">

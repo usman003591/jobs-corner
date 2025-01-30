@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
 
 class JobController extends Controller
 {
@@ -15,11 +16,11 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all()->groupBy('is_featured');
+        $jobs = Job::latest()->with(['employer', 'tags'])->get();
 
         return view('jobs.index', [
-            'featuredJobs' => $jobs[true],
-            'jobs' => $jobs[false],
+            'jobs' => $jobs, // All jobs including featured ones
+        'featuredJobs' => $jobs->where('is_featured', 1), // Separate featured jobs list
             'tags' => Tag::all(),
         ]);
     }
@@ -35,12 +36,28 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreJobRequest $request)
+    public function store(Request $request)
     {
-        $request['is_featured'] = $request->has('is_featured');
-        Auth::user()->employer->jobs()->create([
-            
+        $attributes = $request->validate([
+            'title' => ['required'],
+            'description' => ['required'],
+            'location' => ['required'],
+            'salary' => ['required'],
+            'position' => ['required', Rule::in(['Part-Time', 'Full-Time'])],
+            'url' => ['required'],
+            'tags' => ['nullable', 'string'],
         ]);
+        $attributes['is_featured'] = $request->has('is_featured');
+
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if (!empty($attributes['tags'])) {
+            foreach (explode(',', $attributes['tags']) as $tagName) {
+                $job->tag(trim($tagName)); // Use the tag() method in Job model
+            }
+        }
+
+        return redirect('/');
     }
 
     /**
@@ -62,7 +79,7 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJobRequest $request, Job $job)
+    public function update(Request $request, Job $job)
     {
         //
     }
@@ -76,7 +93,7 @@ class JobController extends Controller
     }
 
     public function search(){
-        $jobs = Job::where("title","iLIKE","%".request('q').'%')->get();
+        $jobs = Job::query()->with(['employer', 'tags'])->where("title","iLIKE","%".request('q').'%')->get();
 
         return view('results', ['jobs' => $jobs]);
     }

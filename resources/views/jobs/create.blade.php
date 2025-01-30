@@ -2,7 +2,7 @@
     <x-page-heading>
         Create a new Job
     </x-page-heading>
-    <x-forms.form>
+    <x-forms.form method="POST" action="/jobs">
         <x-forms.input label="Title" name="title" placeholder="e.g., Software Engineer"/>
         <x-forms.input label="Description" name="description" placeholder="Job description" />
         <x-forms.input label="Location" name="location" placeholder="e.g., Islamabad"/>

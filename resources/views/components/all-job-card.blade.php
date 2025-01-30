@@ -1,7 +1,7 @@
 @props(['job'])
 <x-panel class="flex">
 
-    <x-company-logo />
+    <x-company-logo :employer="$job->employer"/>
     <div class="pl-10">
         <div>
             <a href="">

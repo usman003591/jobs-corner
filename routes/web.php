@@ -23,7 +23,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy']);
     Route::get('/jobs/create', [JobController::class, 'create']);
-    Route::get('/jobs', [JobController::class, 'store']);
+    Route::post('/jobs', [JobController::class, 'store']);
 
 });
 
