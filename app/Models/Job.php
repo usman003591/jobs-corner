@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Tag;
 use App\Models\Employer;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,7 +31,13 @@ class Job extends Model
 
     public function tag(string $name): void
     {
-        $tag = Tag::firstOrCreate(['name' => $name]);
-    $this->tags()->syncWithoutDetaching([$tag->id]);
+        $slug = Str::slug($name); // Convert the name into a slug
+
+        $tag = Tag::firstOrCreate(
+            ['slug' => $slug], // Search by slug to ensure uniqueness
+            ['name' => $name]   // If it doesn't exist, create it with the given name
+        );
+
+        $this->tags()->syncWithoutDetaching([$tag->id]);
     }
 }

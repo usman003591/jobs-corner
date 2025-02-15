@@ -7,7 +7,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
 Route::get('/search', [JobController::class, 'search'])->name('search');
-Route::get('/tags/{tag:name}', TagController::class);
+Route::get('/tags/{tag:slug}', TagController::class);
 Route::get('/', [JobController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
